@@ -1,6 +1,6 @@
 //
 //  Authors: Jeffrey Claudio
-//  Latest Revision: 10-16-2025
+//  Latest Revision: 10-26-2025
 //  
 //  Project: rv32i_top.sv
 //  Description: RISC-V 32-bit Integer Extension
@@ -8,8 +8,15 @@
 //  License: MIT License (see LICENSE file in the project root)
 //
 
-module rv32i_top
-(
+module rv32i_top #(
+  // ---------------------------------------------------
+  // Parameterized Memory Map
+  // ---------------------------------------------------
+  parameter int IMEM_SIZE_POW2 = 14,             // 2^14 = 16 kB Instruction Memory
+  parameter int DMEM_SIZE_POW2 = 14,             // 2^14 = 16 kB Data Memory
+  parameter int IMEM_BASE_ADDR = 32'h0000_0000,  // IMEM starts at 0x0000_0000
+  parameter int DMEM_BASE_ADDR = 32'h8000_0000   // DMEM starts at 0x0000_1000
+)(
   input logic        clk,  // Clock
   input logic        reset // Reset
 );
@@ -39,12 +46,18 @@ module rv32i_top
     .WriteData(WriteData)
   );
 
-  i_mem u_i_mem(
+  i_mem #(
+    .SIZE_POW2(IMEM_SIZE_POW2),
+    .BASE_ADDR(IMEM_BASE_ADDR)
+  ) u_i_mem(
     .A(PC),            // Instruction Address
     .RD(Instr)         // Instruction
   );
 
-  d_mem u_d_mem(
+  d_mem #(
+    .SIZE_POW2(DMEM_SIZE_POW2),
+    .BASE_ADDR(DMEM_BASE_ADDR)
+  ) u_d_mem(
     .clk(clk),         // Clock
     .WE(MemWrite),     // Write Enable
     .byte_en(byte_en), // Byte Enable

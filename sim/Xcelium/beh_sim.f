@@ -2,6 +2,9 @@
 -gui
 -timescale 1ps/1fs
 
++define+IMEM_HEX="\"../sim/i_mem.hex\""
++define+DMEM_HEX="\"../sim/d_mem.hex\""
+
 ../../rtl/my_pkg.sv
 ../../rtl/mux2.sv
 ../../rtl/mux3.sv
@@ -20,4 +23,4 @@
 ../../rtl/rv32i.sv
 ../../rtl/rv32i_top.sv
 
-rv32i_top_tb.sv
+../rv32i_top_tb.sv

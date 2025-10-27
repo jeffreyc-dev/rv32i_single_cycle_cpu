@@ -1,0 +1,64 @@
+//
+//  Authors: Jeffrey Claudio
+//  Latest Revision: 10-26-2025
+//  
+//  Project: rv32i_top_tb.sv
+//  Description: A simple behavior-level testbench for rv32i_top.sv
+//
+
+module rv32i_top_tb;
+
+  // Clock & Reset
+  reg clk   = 1;
+  reg reset = 1;
+  always #100 clk = ~clk; // 5 GHz clock
+
+  // Parameter overrides for top-level memories
+  parameter int IMEM_SIZE_POW2 = 14; // 2^12 = 16 kB
+  parameter int DMEM_SIZE_POW2 = 24; // 2^14 = 16 kB
+  parameter int IMEM_BASE_ADDR = 32'h0000_0000;
+  parameter int DMEM_BASE_ADDR = 32'h8000_0000;
+
+  // For comparing to Spike/Sail RISC-V models;
+  integer file;
+  integer i;
+
+  initial begin
+    $dumpfile("rv32i_top_tb.vcd");
+    $dumpvars(0,rv32i_top_tb);
+
+    repeat (10) @(posedge clk);
+    reset <= 0;
+    repeat (40000) @(posedge clk);
+
+    // Open hex file
+    file = $fopen("d_mem_final.hex", "w");
+
+    if (file == 0) begin
+        $display("ERROR: could not open d_mem_final.hex for writing");
+        $finish;
+    end
+
+    // Loop over 100 memory words
+    for (i = 0; i < 100; i++) begin
+        // Write in hex format
+        $fdisplay(file, "%08X", u_DUT.u_d_mem.DMEM[i]);
+    end
+
+    $fclose(file);
+    $display("DMEM dump complete!");
+    $finish;
+    
+  end
+
+  rv32i_top #(
+    .IMEM_SIZE_POW2(IMEM_SIZE_POW2),
+    .DMEM_SIZE_POW2(DMEM_SIZE_POW2),
+    .IMEM_BASE_ADDR(IMEM_BASE_ADDR),
+    .DMEM_BASE_ADDR(DMEM_BASE_ADDR)
+  ) u_DUT(
+    .clk(clk),
+    .reset(reset)
+  );
+
+endmodule
