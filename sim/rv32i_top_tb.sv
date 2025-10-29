@@ -1,6 +1,6 @@
 //
 //  Authors: Jeffrey Claudio
-//  Latest Revision: 10-26-2025
+//  Latest Revision: 10-29-2025
 //  
 //  Project: rv32i_top_tb.sv
 //  Description: A simple behavior-level testbench for rv32i_top.sv
@@ -14,8 +14,8 @@ module rv32i_top_tb;
   always #100 clk = ~clk; // 5 GHz clock
 
   // Parameter overrides for top-level memories
-  parameter int IMEM_SIZE_POW2 = 14; // 2^12 = 16 kB
-  parameter int DMEM_SIZE_POW2 = 24; // 2^14 = 16 kB
+  parameter int IMEM_SIZE_POW2 = 10; // 2^10 = 1   KB
+  parameter int DMEM_SIZE_POW2 = 9;  // 2^9  = 0.5 KB
   parameter int IMEM_BASE_ADDR = 32'h0000_0000;
   parameter int DMEM_BASE_ADDR = 32'h8000_0000;
 

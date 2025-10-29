@@ -6,7 +6,7 @@ RTL_DIR=../../rtl
 SIM_DIR=..
 
 # Verilator executable flags
-VERILATOR_FLAGS="--cc --exe --build -Wall -Wno-fatal --trace"
+VERILATOR_FLAGS="--cc --exe --build -Wall -Wno-fatal --trace --trace-max-array 16384"
 
 # Top-level module and testbench
 TOP=rv32i_top

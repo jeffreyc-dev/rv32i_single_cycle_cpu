@@ -2,8 +2,8 @@
 -gui
 -timescale 1ps/1fs
 
-+define+IMEM_HEX="\"../sim/i_mem.hex\""
-+define+DMEM_HEX="\"../sim/d_mem.hex\""
++define+IMEM_HEX="\"../i_mem.hex\""
++define+DMEM_HEX="\"../d_mem.hex\""
 
 ../../rtl/my_pkg.sv
 ../../rtl/mux2.sv

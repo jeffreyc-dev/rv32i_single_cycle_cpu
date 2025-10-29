@@ -2,7 +2,7 @@
 
 // Maximum disks
 #define MAX_DISKS 7
-#define STACK_TOP 0x5000 // Stack top in DMEM
+#define STACK_TOP 0x80000200 // Stack top in DMEM
 
 
 // Towers (0=A, 1=B, 2=C) placed in custom section ".towers"

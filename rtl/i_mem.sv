@@ -1,6 +1,6 @@
 //
 //  Authors: Jeffrey Claudio
-//  Latest Revision: 10-26-2025
+//  Latest Revision: 10-29-2025
 //  
 //  Project: i_mem.sv
 //  Description: Instruction Memory
@@ -8,7 +8,7 @@
 //
 
 module i_mem #(
-  parameter int SIZE_POW2 = 14,              // 2^SIZE_POW2 bytes (e.g., 2^14 = 16kB)
+  parameter int SIZE_POW2 = 10,              // 2^SIZE_POW2 bytes (e.g., 2^10 = 1 KB)
   parameter int BASE_ADDR = 32'h0000_0000    // Starting Address
 )(
   input  logic [31:0] A,                     // Instruction Address

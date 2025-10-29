@@ -1,6 +1,6 @@
 //
 //  Authors: Jeffrey Claudio
-//  Latest Revision: 10-26-2025
+//  Latest Revision: 10-29-2025
 //  
 //  Project: rv32i_top.sv
 //  Description: RISC-V 32-bit Integer Extension
@@ -12,8 +12,8 @@ module rv32i_top #(
   // ---------------------------------------------------
   // Parameterized Memory Map
   // ---------------------------------------------------
-  parameter int IMEM_SIZE_POW2 = 14,             // 2^14 = 16 kB Instruction Memory
-  parameter int DMEM_SIZE_POW2 = 14,             // 2^14 = 16 kB Data Memory
+  parameter int IMEM_SIZE_POW2 = 10,             // 2^10 = 1   KB Instruction Memory
+  parameter int DMEM_SIZE_POW2 =  9,             // 2^9  = 0.5 KB Data Memory
   parameter int IMEM_BASE_ADDR = 32'h0000_0000,  // IMEM starts at 0x0000_0000
   parameter int DMEM_BASE_ADDR = 32'h8000_0000   // DMEM starts at 0x0000_1000
 )(

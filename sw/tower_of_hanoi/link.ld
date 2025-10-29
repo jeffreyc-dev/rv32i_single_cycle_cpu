@@ -1,8 +1,8 @@
 ENTRY(_reset)
 
 MEMORY {
-  IMEM (rx)  : ORIGIN = 0x00000000, LENGTH = 1K   /*  1 kB IMEM */
-  DMEM (rw)  : ORIGIN = 0x80000000, LENGTH = 16K  /* 16 kB DMEM */
+  IMEM (rx)  : ORIGIN = 0x00000000, LENGTH = 1K  /* 1   KB IMEM */
+  DMEM (rw)  : ORIGIN = 0x80000000, LENGTH = 512 /* 0.5 KB DMEM */
 }
 
 SECTIONS {
@@ -23,5 +23,5 @@ SECTIONS {
   .bss    : { *(.bss*)    } > DMEM
 
   /* Stack top */
-  _stack_top = ORIGIN(DMEM) + LENGTH(DMEM);  /* SP = 0x8000_0000 + 0x4000 = 0x8000_4000 */
+  _stack_top = ORIGIN(DMEM) + LENGTH(DMEM);  /* SP = 0x8000_0000 + 0x0200 = 0x8000_0200 */
 }
