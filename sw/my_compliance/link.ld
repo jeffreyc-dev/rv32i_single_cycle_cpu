@@ -3,8 +3,8 @@
 OUTPUT_ARCH("riscv")
 
 MEMORY {
-  IMEM (rx)  : ORIGIN = 0x00000000, LENGTH = 4K   /* 4   kB IMEM */
-  DMEM (rw)  : ORIGIN = 0x80000000, LENGTH = 512  /* 0.5 kB DMEM */
+  IMEM (rx)  : ORIGIN = 0x00000000, LENGTH = 4K  /* 4   KB IMEM */
+  DMEM (rw)  : ORIGIN = 0x80000000, LENGTH = 512 /* 0.5 KB DMEM */
 }
 
 SECTIONS {
@@ -23,4 +23,7 @@ SECTIONS {
   .bss : {
     *(.bss*)               /* all BSS sections */
   } > DMEM
+
+  /* Stack bottom */
+  _stack_bottom = ORIGIN(DMEM); /* sp = 0x8000_0000 */
 }

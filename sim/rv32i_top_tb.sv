@@ -14,7 +14,7 @@ module rv32i_top_tb;
   always #100 clk = ~clk; // 5 GHz clock
 
   // Parameter overrides for top-level memories
-  parameter int IMEM_SIZE_POW2 = 10; // 2^10 = 1   KB
+  parameter int IMEM_SIZE_POW2 = 12; // 2^12 = 4   KB
   parameter int DMEM_SIZE_POW2 = 9;  // 2^9  = 0.5 KB
   parameter int IMEM_BASE_ADDR = 32'h0000_0000;
   parameter int DMEM_BASE_ADDR = 32'h8000_0000;

@@ -8,7 +8,7 @@
 //
 
 module i_mem #(
-  parameter int SIZE_POW2 = 10,              // 2^SIZE_POW2 bytes (e.g., 2^10 = 1 KB)
+  parameter int SIZE_POW2 = 12,              // 2^SIZE_POW2 bytes (e.g., 2^12 = 4 KB)
   parameter int BASE_ADDR = 32'h0000_0000    // Starting Address
 )(
   input  logic [31:0] A,                     // Instruction Address

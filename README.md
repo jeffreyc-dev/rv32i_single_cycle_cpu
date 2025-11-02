@@ -6,9 +6,10 @@ The design fully supports the **base integer instruction set**, with clean modul
 ---
 
 ## Project Structure
-- `rtl/` — Verilog Source Modules
-- `sim/` — Testbenches
-- `docs/` — Diagrams and Explanations
+- `docs/` — Diagrams
+- `rtl/`  — Verilog Source Modules
+- `sim/`  — Testbenches
+- `sw/`   — Programs
 
 ---
 
@@ -80,15 +81,17 @@ The control unit decodes the instruction opcode and generates control signals fo
 
 ## 🧪 Simulation & Testing
 
-- In progress
+- **Tower of Hanoi** simulation passed
+- **Basic Compliance** simulation passed
 
 ---
 
 ## 🚀 Future Work
-- Add **RV32M** (multiply/divide) extension  
-- Implement **five-stage pipelined** version  
-- Add **hazard handling**  
-
+- Add **RV32M** (multiply/divide) extension with multi-cycle arithmetic units
+- Implement **five-stage pipelined** version
+- Add **full hazard handling and data forwarding**
+- Implement **dynamic branch prediction** (2-bit saturating counter)
+- Add **L1 Instruction/Data Cache with AXI4-Lite Interface**
 ---
 
 ## 📄 License

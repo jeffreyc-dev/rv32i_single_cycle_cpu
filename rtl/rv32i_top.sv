@@ -12,7 +12,7 @@ module rv32i_top #(
   // ---------------------------------------------------
   // Parameterized Memory Map
   // ---------------------------------------------------
-  parameter int IMEM_SIZE_POW2 = 10,             // 2^10 = 1   KB Instruction Memory
+  parameter int IMEM_SIZE_POW2 = 12,             // 2^12 = 4   KB Instruction Memory
   parameter int DMEM_SIZE_POW2 =  9,             // 2^9  = 0.5 KB Data Memory
   parameter int IMEM_BASE_ADDR = 32'h0000_0000,  // IMEM starts at 0x0000_0000
   parameter int DMEM_BASE_ADDR = 32'h8000_0000   // DMEM starts at 0x0000_1000
