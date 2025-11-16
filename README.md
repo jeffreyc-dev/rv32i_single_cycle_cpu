@@ -91,7 +91,6 @@ The control unit decodes the instruction opcode and generates control signals fo
 - Implement **five-stage pipelined** version
 - Add **full hazard handling and data forwarding**
 - Implement **dynamic branch prediction** (2-bit saturating counter)
-- Add **L1 Instruction/Data Cache with AXI4-Lite Interface**
 ---
 
 ## 📄 License
